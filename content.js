@@ -4,7 +4,7 @@
 	function appendingResourcesGW() {
 
 	   	  if ($(".goWorkerRec").length === 0) { // checks if div with class goWorkerRe isnt there
-			q			$(".js-plugin-sections").prepend("<div class='marginBottomGW goWorkerRec goWorkerFont'> Recommended Resources </div>")
+						$(".js-plugin-sections").prepend("<div class='marginBottomGW goWorkerRec goWorkerFont'> Recommended Resources </div>")
 				 
 						$.each(websitesGW, function( pos, val) {
 

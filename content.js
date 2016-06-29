@@ -1,28 +1,36 @@
 		
 
 
+
+
+
+console.log("yello am bob")
 	function appendingResourcesGW() {
-
+		  if ($(".js-plugin-sections").length > 0) {
 	   	  if ($(".goWorkerRec").length === 0) { // checks if div with class goWorkerRe isnt there
+
 						$(".js-plugin-sections").prepend("<div class='marginBottomGW goWorkerRec goWorkerFont'> Recommended Resources </div>")
-				 
-						$.each(websitesGW, function( pos, val) {
+						console.log('after', $(".goWorkerRec").length)
+				 		$.getJSON("https://chrisg.herokuapp.com/websitesDatabaseTest.json", function(websitesGW){
+								$.each(websitesGW, function( pos, val) {
 
-							var websiteLinkGW = val.link
-							var websiteNameGW = val.name
-							var websitePicGW = val.pic
+									var websiteLinkGW = val.link
+									var websiteNameGW = val.name
+									var websitePicGW = val.pic
 
-							var recWebGW = $("<a class='linkClassGW marginLeftGW' href='" + websiteLinkGW + "'><div class='divShadowGW inlineGW'><img class='goWorkClass blockGW' src='" + websitePicGW + "'></img><div class='paddingTextGW containerGW'><div class='linkGW containerTextGW goWorkerFont'>"+ websiteNameGW +"</div></div></div></a>")
+									var recWebGW = $("<a class='linkClassGW marginLeftGW' href='" + websiteLinkGW + "'><div class='divShadowGW inlineGW'><img class='goWorkClass blockGW' src='" + websitePicGW + "'></img><div class='paddingTextGW containerGW'><div class='linkGW containerTextGW goWorkerFont'>"+ websiteNameGW +"</div></div></div></a>")
 
-						    $(".js-plugin-sections").append(recWebGW)
-							    .append("<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js'>  </script>")
+								    $(".js-plugin-sections").append(recWebGW)
+									    .append("<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js'>  </script>")
 
-							return(pos !== 2)
+									return(pos !== 2)
 
-				   		})
+						   		})
+				 		})
+
 		  }
-	}
-
+	 }
+}
 
 
 	$( document ).bind("DOMSubtreeModified",function(){ // runs function when page is changed
@@ -37,7 +45,7 @@
      appendingResourcesGW()
 
 	})
-		
+
 
 
 
